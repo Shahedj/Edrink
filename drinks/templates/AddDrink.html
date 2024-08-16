@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a new drink</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        .container {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* Form container */
+        .form-container {
+            width: 40%;
+            /* 40% for the form */
+            padding: 50px;
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Slightly transparent background for readability */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Background image container */
+        .image-container {
+            width: 60%;
+            /* 60% for the image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa;
+            /* Optional background color */
+        }
+
+        /* Spline viewer taking up 100% of the available space */
+        spline-viewer {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Styling for the back button */
+        .back {
+            border-style: none;
+            text-decoration: none;
+            font-size: 18px;
+            background-color: rgb(37, 37, 37);
+            color: rgb(255, 200, 0);
+            padding: 12px;
+            text-align: center;
+            border-radius: 25px;
+            transition: 1s all;
+            margin-left: 0px;
+            margin-right: 400px;
+            transition: 0.8s all;
+        }
+
+        .back:hover {
+            background-color: rgb(255, 170, 0);
+            color: black;
+        }
+
+        .backContainer {
+            margin-bottom: 80px;
+            margin-left: 0px;
+        }
+
+        .submitButton {
+            border-style: none;
+            text-decoration: none;
+            font-size: 17px;
+            background-color: rgb(37, 37, 37);
+            color: rgb(255, 200, 0);
+            padding: 14px;
+            text-align: center;
+            border-radius: 25px;
+            margin-top: 25px;
+            transition: 0.8s all;
+        }
+
+        .submitButton:hover {
+            background-color: rgb(255, 170, 0);
+            color: black;
+        }
+
+        .form {
+            background-color: rgba(251, 234, 132, 0.482);
+            border-color: rgb(255, 170, 0);
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 35px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Form Container -->
+        <div class="form-container">
+            <div class="backContainer">
+                <a class="back" href="/list"> <b><-- </b> Back </a>
+            </div>
+
+            <h1>Create a new drink</h1>
+            <form action="/list/newDrink/" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="name" class="form-label name"><b>Drink Name:</b></label>
+                    <input type="text" class="form-control form" name="name" id="name" required
+                        placeholder="Enter Drink Name">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label"><b>Drink Description:</b></label>
+                    <textarea class="form-control form" name="description" required
+                        placeholder="Enter Full Drink Ingredients" id="description" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="cost" class="form-label cost"><b>Drink Cost:</b></label>
+                    <input type="text" class="form-control form" required name="cost" id="cost"
+                        placeholder="Enter Drink Cost">
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label"><b>Image of Drink:</b></label>
+                    <input class="form-control form" required type="file" id="image" name="image">
+                </div>
+
+                <input type="submit" value="Submit" class="btn btn-primary submitButton">
+            </form>
+        </div>
+
+        <!-- Image Container -->
+        <div class="image-container">
+            <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.12/build/spline-viewer.js"></script>
+            <spline-viewer url="https://prod.spline.design/QRJIGRzvHN6SBD-q/scene.splinecode"></spline-viewer>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
