@@ -27,10 +27,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure--^*2=$i-h1n%yvjc+-2p@gs6t4pk3=^1yk+5yk@t*#6#48f$85"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
-ALLOWED_HOSTS = ['127.0.0.1', 'edrink.vercel.app', 'edrink-2vilxctzo-shahedjs-projects.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 WSGI_APPLICATION = 'api.wsgi.app'
@@ -124,16 +124,20 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "drinks/static"),
 ]
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # This is the directory where static files will be collected.
+ # This is the directory where static files will be collected.
 
 MEDIA_URL = '/media/'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'drinks/media')
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

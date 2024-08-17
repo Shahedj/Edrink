@@ -31,5 +31,6 @@ urlpatterns = [
     path("list/newDrink/", views.newDrink,  name='newDrink'),
     path("list/delete/<int:id>", views.delete,  name='delete'),
 ]
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
