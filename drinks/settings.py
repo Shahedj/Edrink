@@ -130,6 +130,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "drinks/static"),
 ]
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # This is the directory where static files will be collected.
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'drinks/media')
