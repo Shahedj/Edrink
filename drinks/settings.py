@@ -27,10 +27,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure--^*2=$i-h1n%yvjc+-2p@gs6t4pk3=^1yk+5yk@t*#6#48f$85"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1', 'edrink.vercel.app', 'edrink-2vilxctzo-shahedjs-projects.vercel.app']
 
 
 WSGI_APPLICATION = 'api.wsgi.app'
