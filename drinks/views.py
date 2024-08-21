@@ -96,7 +96,7 @@ def drinkDetail(request, id):
         return render(request, "DrinkDetail.html", {"data": drink})
 
 
-
+#SAVE INTO DATABASE 
 def newDrink(request):
     if request.method == "POST":
         name = request.POST.get('name')
